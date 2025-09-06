@@ -16,7 +16,7 @@ import {
   Menu,
   X,
 } from "lucide-react";
-
+const profileImage = "/assets/profile.jpg";
 const Layout = () => {
   const location = useLocation();
 
@@ -46,7 +46,7 @@ const Layout = () => {
         <div className="flex items-center gap-3">
           <div className="relative">
             <img
-              src="/src/assets/profile.jpg"
+              src={profileImage}
               alt="Profile"
               className="w-10 h-10 rounded-full object-cover ring-2 ring-blue-500/50"
             />
@@ -138,7 +138,7 @@ const SidebarContent = ({
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-lg opacity-30 animate-pulse"></div>
             <div className="relative w-20 h-20 rounded-full overflow-hidden ring-2 ring-blue-500/30 shadow-2xl">
               <img
-                src="/src/assets/profile.jpg"
+                src={profileImage}
                 alt="Profile"
                 className="w-full h-full object-cover"
               />
