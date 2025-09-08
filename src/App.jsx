@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
@@ -14,7 +15,28 @@ function NotFound() {
   return <div className="p-8 text-gray-400">Page not found</div>;
 }
 
+function Loading() {
+  return (
+    <div className="flex items-center justify-center min-h-screen bg-gray-900 text-white">
+      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-teal-400"></div>
+      <span className="ml-4">Loading...</span>
+    </div>
+  );
+}
+
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // simulasi delay (misalnya fetch data awal / asset)
+    const timer = setTimeout(() => setLoading(false), 800);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
     <Router>
       <Routes>
