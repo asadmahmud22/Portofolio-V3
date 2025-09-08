@@ -1,32 +1,30 @@
 import { useState } from "react";
-import { Code } from "lucide-react";
-import { Sun, Moon } from "lucide-react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import {
+  Code,
+  Sun,
+  Moon,
   Home,
   User,
   Award,
   Briefcase,
   LayoutDashboard,
-  MessageCircle,
   Mail,
-  Globe,
   Sparkles,
   ChevronRight,
   Menu,
   X,
 } from "lucide-react";
-const profileImage = "/assets/profile.jpg";
-const Layout = () => {
-  const location = useLocation();
 
+const profileImage = "/assets/profile.jpg";
+
+const Layout = () => {
   const [language, setLanguage] = useState("en");
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleLanguage = () => {
+  const toggleLanguage = () =>
     setLanguage((prev) => (prev === "en" ? "id" : "en"));
-  };
 
   const toggleTheme = () => {
     setIsDarkMode((prev) => !prev);
@@ -129,11 +127,10 @@ const SidebarContent = ({
     <>
       {/* Profile Section */}
       <div className="p-5 flex flex-col items-center relative">
-        {/* Background Gradient */}
         <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 to-transparent opacity-50"></div>
 
         <div className="relative z-10 flex flex-col items-center">
-          {/* Profile Image with Glow Effect */}
+          {/* Profile */}
           <div className="relative mb-4">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-lg opacity-30 animate-pulse"></div>
             <div className="relative w-20 h-20 rounded-full overflow-hidden ring-2 ring-blue-500/30 shadow-2xl">
@@ -143,13 +140,12 @@ const SidebarContent = ({
                 className="w-full h-full object-cover"
               />
             </div>
-            {/* Online Status */}
             <div className="absolute -bottom-0.5 -right-0.5 w-4 h-4 bg-green-500 rounded-full border-2 border-black flex items-center justify-center">
               <div className="w-1.5 h-1.5 bg-white rounded-full animate-ping"></div>
             </div>
           </div>
 
-          {/* Name and Title */}
+          {/* Name & Title */}
           <div className="text-center mb-3">
             <h2 className="text-lg font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
               As'ad Mahmud
@@ -196,48 +192,13 @@ const SidebarContent = ({
       <nav className="px-3 flex-1 pb-1">
         <div className="space-y-1">
           {[
-            {
-              to: "/",
-              label: "Home",
-              icon: Home,
-              color: "from-blue-500 to-cyan-500",
-            },
-            {
-              to: "/about",
-              label: "About",
-              icon: User,
-              color: "from-purple-500 to-pink-500",
-            },
-            {
-              to: "/skills",
-              label: "Skills",
-              icon: Code,
-              color: "from-green-500 to-emerald-500",
-            },
-            {
-              to: "/achievements",
-              label: "Achievements",
-              icon: Award,
-              color: "from-yellow-500 to-orange-500",
-            },
-            {
-              to: "/projects",
-              label: "Projects",
-              icon: Briefcase,
-              color: "from-red-500 to-rose-500",
-            },
-            {
-              to: "/dashboard",
-              label: "Dashboard",
-              icon: LayoutDashboard,
-              color: "from-indigo-500 to-blue-500",
-            },
-            {
-              to: "/contact",
-              label: "Contact",
-              icon: Mail,
-              color: "from-teal-500 to-cyan-500",
-            },
+            { to: "/", label: "Home", icon: Home, color: "from-blue-500 to-cyan-500" },
+            { to: "/about", label: "About", icon: User, color: "from-purple-500 to-pink-500" },
+            { to: "/skills", label: "Skills", icon: Code, color: "from-green-500 to-emerald-500" },
+            { to: "/achievements", label: "Achievements", icon: Award, color: "from-yellow-500 to-orange-500" },
+            { to: "/projects", label: "Projects", icon: Briefcase, color: "from-red-500 to-rose-500" },
+            { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard, color: "from-indigo-500 to-blue-500" },
+            { to: "/contact", label: "Contact", icon: Mail, color: "from-teal-500 to-cyan-500" },
           ].map(({ to, label, icon: Icon, color }) => {
             const isActive = location.pathname === to;
             return (
@@ -250,7 +211,6 @@ const SidebarContent = ({
                     : "text-gray-400 hover:text-white hover:bg-white/10"
                 }`}
               >
-                {/* Background Glow for Active Item */}
                 {isActive && (
                   <div
                     className={`absolute inset-0 bg-gradient-to-r ${color} rounded-lg blur opacity-30`}
