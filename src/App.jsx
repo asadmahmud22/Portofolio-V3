@@ -17,9 +17,11 @@ function NotFound() {
 
 function Loading() {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-900 text-white">
-      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-teal-400"></div>
-      <span className="ml-4">Loading...</span>
+    <div className="flex items-center justify-center min-h-screen w-full bg-gray-900 text-white">
+      <div className="flex flex-col items-center gap-4">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-teal-400"></div>
+        <span className="text-sm text-gray-300">Loading...</span>
+      </div>
     </div>
   );
 }
@@ -57,3 +59,4 @@ function App() {
 }
 
 export default App;
+
