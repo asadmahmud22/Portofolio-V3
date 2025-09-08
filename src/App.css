@@ -1,9 +1,24 @@
+/* Pastikan halaman memenuhi layar */
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(3, 7, 18); /* dark background misalnya */
+  color: white; /* biar text kelihatan */
+  font-family: sans-serif;
+}
+
+/* Nav item aktif */
 .active-nav-item {
   background-color: rgb(17, 24, 39);
   color: white;
   border-left: 2px solid rgb(59, 130, 246);
 }
 
+/* Nav item default */
 .nav-item {
   display: flex;
   align-items: center;
@@ -18,6 +33,7 @@
   background-color: rgb(17, 24, 39);
 }
 
+/* Tombol hire me */
 .hire-me-btn {
   position: relative;
   display: flex;
@@ -36,9 +52,17 @@
   background-color: rgba(34, 197, 94, 0.1);
 }
 
+/* Status indicator */
 .status-indicator {
   width: 0.5rem;
   height: 0.5rem;
   background-color: rgb(34, 197, 94);
   border-radius: 9999px;
+}
+
+/* Tambahan supaya container isi halaman full screen */
+.fullscreen-container {
+  min-height: 100vh; /* penuh 1 layar */
+  display: flex;
+  flex-direction: column;
 }
